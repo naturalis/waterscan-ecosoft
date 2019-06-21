@@ -1,0 +1,26 @@
+Een handleiding over de api op technisch niveau:
+
+De api is gebouwd in Python met behulp van het microframework genaamd Flask.
+Aangezien wij de api een REST structuur hebben gegeven hebben maken wij ook gebruik gemaakt van de extra library genaamd Flask-RESTful, dit maakte de HTTP request makkelijk te implementeren.
+Wij hebben ook een ORM toegevoegd genaamd SQLAlchemy, dit maakte het databasewerk wat gemakkelijker. De library hiervoor heet Flask-SQLAlchemy.
+Er zijn nog heel wat andere libraries die we hebben gebruikt, ze zijn allen te vinden onder het bestand genaamd "requirements.txt"
+
+Eerst wil ik de architectuur bespreken. Er is één main klasse genaamd "App.py". Hierin staan de beschikbare routes waar HTTP requests verstuurd naar kunnen worden.
+Aan elke route zit een resource gekoppelt, dit is de eerste laag van de architectuur. Resources ontvangen de diverse requests van de client en sturen deze door naar de gekoppelde service, de tweede laag.
+De service bevat de logica, het haalt data op of handelt data af door middel van queries. Deze queries staan echter beschreven in het model zelf, de derde laag.
+Dit omdat het model direct staat verbonden met de database tabellen. Er zijn dus drie lagen exclusief de main klasse in deze architectuur.
+
+Wanneer wordt een nieuwe resource, service of model aangemaakt?
+Een resource wordt aangemaakt wanneer u een nieuwe HTTP endpoint wilt opzetten.
+Een service kan altijd aangezien u hier logica kunt inzetten van wat dan ook, verzin hier dus een mooie naam voor.
+Een model wordt aangemaakt wanneer u een nieuwe tabel wilt toevoegen aan de database, het gaat dan dus om een nieuwe datavorm.
+
+In principe is Python erg flexibel met alles, dus doe het vooral op de manier hoe u wilt, echter is het handig om de structuur te blijven behouden.
+
+Installatie stappen:
+
+Om er voor te zorgen dat er geen problemen zijn in de toekomst met verschillende versies maken wij gebruik van een virtual environment genaamd venv.
+In deze venv staan alle libraries die nodig zijn om deze applicatie te kunnen runnen. In de map van deze applicatie vindt u een bestand genaamd fixVenv.bat, run deze.
+Vervolgens wordt er een venv folder gemaakt, uw IDE zal waarschijnlijk zeuren om een Python interpreter. Ga naar uw project instellingen en selecteer de interpreter van de venv map.
+
+Tip: U kunt de venv map vergelijken met het idee van de npm modules van Angular. We laten u deze zelf installeren zodat we deze grote data niet hoeven mee te sturen.
